@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/index.js"></script>
+    <title>index</title>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="/public/images/banner.jpg" alt="">
+    </div>
+
+    <div class="nav-wraper">
+        <ul class="nav">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">HTML</a>
+            </li>
+            <li>
+                <a href="#">css</a>
+            </li>
+            <li>
+                <a href="#">Js</a>
+            </li>
+            <li>
+                <a href="#">php</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="container">
+
+
+
+        <div class="left">
+
+            <ul class="article-list">
+                <li>
+                    <h3>标题</h3>
+                    <p class="summary">
+                        了兼容老的移动端安卓等浏览器 必须要用-webkit-box，不能用flex，并且有的时候元素宽高是不能写死的，如此情况下如何实现spance-between及spance-around等的效果，用table？
+                    </p>
+                    <button>
+                        查看详情
+                    </button>
+                </li>
+                <li>
+                    <h3>标题</h3>
+                    <p class="summary">
+                        了兼容老的移动端安卓等浏览器 必须要用-webkit-box，不能用flex，并且有的时候元素宽高是不能写死的，如此情况下如何实现spance-between及spance-around等的效果，用table？
+                    </p>
+                    <button>
+                        查看详情
+                    </button>
+                </li>
+                <li>
+                    <h3>标题</h3>
+                    <p class="summary">
+                        了兼容老的移动端安卓等浏览器 必须要用-webkit-box，不能用flex，并且有的时候元素宽高是不能写死的，如此情况下如何实现spance-between及spance-around等的效果，用table？
+                    </p>
+                    <button>
+                        查看详情
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            {% if userInfo._id %}
+            <div class="welcome-wrap" style="display:none;">
+                欢迎
+                <p class="username"></p>
+                <button>退出</button>
+            </div>
+            {% else %}
+            <div class="login-wrap" style="display:none;">
+                <h3 class="login-title">登录</h3>
+                <div>
+                 <div>
+                        <label for="">用户名</label>
+                    <input type="text" name="username" />
+                 </div>
+                   <div>
+                        <label for="">密码</label><br/>
+                    <input type="password" name="userpassword" />
+                   </div>
+                   <p class="warn-text"></p>
+                   <button>登录</button>
+                   <div>
+                       <a class="resiter-login" href="#">去注册</a>
+                   </div>
+                </div>
+            </div>
+
+<!-- 注册 -->
+            <div class="register-wrap" >
+                    <h3 class="login-title">注册</h3>
+                    <div>
+                     <div>
+                            <label for="">用户名</label>
+                        <input type="text" name="username" />
+                     </div>
+                       <div>
+                            <label for="">密码</label><br/>
+                        <input type="password" name="userpassword" />
+                       </div>
+
+                       <div>
+                            <label for="">重复密码</label><br/>
+                        <input type="password" name="repassword" />
+                       </div>
+                        <p class="warn-text"></p>
+                       <button>注册</button>
+                       <div>
+                           <a class="resiter-login" href="#">去登录</a>
+                       </div>
+                    </div>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>

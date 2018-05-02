@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background: red; */
+    font-family: "Microsoft Yahei";
+    background:#eee;
+}
+a {
+    text-decoration:none;
+    color:#000;
+}
+ul,li{
+    list-style: none;
+}
+
+.banner {
+    font-size: 0;
+}
+
+.banner img {
+    width: 100%;
+    height: 280px;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.right {
+    width: 252px;
+}
+
+.left {
+    flex: 1;
+    margin-right: 20px;
+}
+.nav-wraper{
+    background:#fff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+.nav{
+    display:flex;
+    width:900px;
+    margin: 0 auto;
+ 
+    justify-content: space-between;
+    
+    
+}
+.nav li{
+    padding:10px 0;
+  
+}
+.article-list{
+
+}
+.article-list li{
+    background:#fff;
+    padding:20px;
+    margin-bottom: 20px;
+}
+.article-list li h3{
+    font-weight: normal;
+    padding:10px 0px;
+    font-size: 18px;
+}
+.article-list li .summary{
+    font-size: 14px;
+    display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+margin:10px 0;
+}
+.article-list li button{
+    background: rgb(238, 91, 32);
+    font-size:14px;
+    border:none;
+    color:#fff;
+    width:76px;
+    height: 32px;
+    line-height: 32px;
+}
+
+
+.register-wrap, .login-wrap, .welcome-wrap{
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.login-title{
+    font-size: 16px;
+    font-weight: normal;
+}
+.login-wrap label{
+    font-size: 14px;
+}
+.resiter-login{
+    font-size: 14px;
+}
