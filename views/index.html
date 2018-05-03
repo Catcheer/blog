@@ -76,56 +76,60 @@
         </div>
         <div class="right">
             {% if userInfo._id %}
-            <div class="welcome-wrap" style="display:none;">
+            <div class="welcome-wrap">
                 欢迎
-                <p class="username"></p>
+                <p class="username">{{userInfo.username}}</p>
+                <p class="warn-text"></p>
                 <button>退出</button>
             </div>
             {% else %}
-            <div class="login-wrap" style="display:none;">
+            <div class="login-wrap">
                 <h3 class="login-title">登录</h3>
                 <div>
-                 <div>
+                    <div>
                         <label for="">用户名</label>
-                    <input type="text" name="username" />
-                 </div>
-                   <div>
-                        <label for="">密码</label><br/>
-                    <input type="password" name="userpassword" />
-                   </div>
-                   <p class="warn-text"></p>
-                   <button>登录</button>
-                   <div>
-                       <a class="resiter-login" href="#">去注册</a>
-                   </div>
+                        <input type="text" name="username" autocomplete />
+                    </div>
+                    <div>
+                        <label for="">密码</label>
+                        <br/>
+                        <input type="password" name="userpassword" autocomplete />
+                    </div>
+                    <p class="warn-text"></p>
+                    <button>登录</button>
+                    <div>
+                        <a class="resiter-login" href="#">去注册</a>
+                    </div>
                 </div>
             </div>
 
-<!-- 注册 -->
-            <div class="register-wrap" >
-                    <h3 class="login-title">注册</h3>
+            <!-- 注册 -->
+            <form class="register-wrap" style="display:none;">
+                <h3 class="login-title">注册</h3>
+                <div>
                     <div>
-                     <div>
-                            <label for="">用户名</label>
-                        <input type="text" name="username" />
-                     </div>
-                       <div>
-                            <label for="">密码</label><br/>
-                        <input type="password" name="userpassword" />
-                       </div>
+                        <label for="">用户名</label>
+                        <input type="text" name="username" autocomplete />
+                    </div>
+                    <div>
+                        <label for="">密码</label>
+                        <br/>
+                        <input type="password" name="userpassword" autocomplete />
+                    </div>
 
-                       <div>
-                            <label for="">重复密码</label><br/>
-                        <input type="password" name="repassword" />
-                       </div>
-                        <p class="warn-text"></p>
-                       <button>注册</button>
-                       <div>
-                           <a class="resiter-login" href="#">去登录</a>
-                       </div>
+                    <div>
+                        <label for="">重复密码</label>
+                        <br/>
+                        <input type="password" name="repassword" autocomplete />
+                    </div>
+                    <p class="warn-text"></p>
+                    <button>注册</button>
+                    <div>
+                        <a class="resiter-login" href="#">去登录</a>
                     </div>
                 </div>
-                {% endif %}
+            </form>
+            {% endif %}
         </div>
     </div>
 

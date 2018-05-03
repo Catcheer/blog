@@ -38,15 +38,20 @@ router.post('/user/register', function (req, res, next) {
     }
 
     User
-        .findOne({username: username})
+        .findOne({
+            username: username
+        })
         .then((userInfo) => {
             if (userInfo) {
                 responseData.code = 4,
-                responseData.message = '该用户名已被注册'
+                    responseData.message = '该用户名已被注册'
                 res.json(responseData)
                 return
             }
-            var user = new User({username: username, userpassword: userpassword})
+            var user = new User({
+                username: username,
+                userpassword: userpassword
+            })
             return user.save()
 
         })
@@ -69,7 +74,10 @@ router.post('/user/login', function (req, res, next) {
         return
     }
     User
-        .findOne({username: username, userpassword: userpassword})
+        .findOne({
+            username: username,
+            userpassword: userpassword
+        })
         .then((userInfo) => {
 
             if (!userInfo) {
@@ -79,26 +87,36 @@ router.post('/user/login', function (req, res, next) {
                 return
             }
             responseData.message = '登陆成功',
-            responseData.userInfo = {
+                responseData.userInfo = {
+                    _id: userInfo._id,
+                    username: userInfo.username
+                }
+
+            res.setHeader('Set-Cookie', Cookies.serialize('userInfo', JSON.stringify({
                 _id: userInfo._id,
                 username: userInfo.username
-            }
-
-            res.setHeader('Cookie', Cookies.serialize('userInfo', JSON.stringify({_id: userInfo._id, username: userInfo.username}), {
-                // httpOnly: false,
-                // maxAge: 600000000 * 60 * 24 * 7 // 1 week
-                // expires: 'Mon, 30 Apr 2018 23:27:41 GMT'
+            }), {
+                maxAge: 600000000 * 60 * 24 * 7, // 1 week
+                path: '/'
             }));
-          
-           
 
-            // req.cookies.set('userInfo', JSON.stringify({     _id: userInfo._id,
-            // username: userInfo.username }))
             res.json(responseData)
             res.end()
             return
 
         })
+
+})
+
+router.get('/user/loginout', function (req, res, next) {
+    res.setHeader('Set-Cookie', Cookies.serialize('userInfo', null, {
+        path: '/'
+    }));
+
+
+    responseData.message = '退出成功'
+    res.json(responseData)
+    return
 
 })
 

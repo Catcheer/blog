@@ -40,7 +40,9 @@ $(function () {
                 },
                 success(res) {
                     // console.log(res)
-                    $(".warn-text").html(res.message)
+                    registerWrap
+                        .find(".warn-text")
+                        .html(res.message)
                     if (!res.code) {
                         setTimeout(() => {
                             loginWrap.show()
@@ -51,10 +53,7 @@ $(function () {
             })
         })
 
-
-
-
-        loginWrap
+    loginWrap
         .find('button')
         .on('click', () => {
             $.ajax({
@@ -67,21 +66,38 @@ $(function () {
                         .val(),
                     userpassword: loginWrap
                         .find('[name="userpassword"]')
-                        .val(),
-                   
+                        .val()
                 },
                 success(res) {
                     // console.log(res)
-                    $(".warn-text").html(res.message)
+                    loginWrap
+                        .find(".warn-text")
+                        .html(res.message)
                     if (!res.code) {
                         setTimeout(() => {
-                            // loginWrap.hide()
-                            // welcomeWrap.show()
-                            // welcomeWrap.find('.username').html(res.userInfo.username)
-                            // window.location='./'
-                            console.log(document.cookie)
+                            location.reload()
                         }, 1000)
-                    }
+                    } else {}
+                }
+            })
+        })
+
+    welcomeWrap
+        .find('button')
+        .on('click', () => {
+            $.ajax({
+                type: 'get',
+                url: '/api/user/loginout',
+                data: {},
+                success(res) {
+                    welcomeWrap
+                        .find(".warn-text")
+                        .html(res.message)
+                    if (!res.code) {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+                    } else {}
                 }
             })
         })
